@@ -1,5 +1,5 @@
-let username;
-let password;
+var username;
+var password;
 
 document.addEventListener("submit", (event) => {
   console.log("Submitted");
@@ -13,7 +13,7 @@ document.addEventListener("submit", (event) => {
   fetch("http://localhost:3000/", { headers: headers })
     .then(function (response) {
       if (response.ok) {
-        document.write("SUCCESSFUL LOGIN");
+        document.write("SUCCESFULL LOGIN");
       }
       throw response;
     })
@@ -23,6 +23,5 @@ document.addEventListener("submit", (event) => {
     .catch(function (error) {
       console.warn(error);
     });
-
   event.preventDefault();
 });
