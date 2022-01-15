@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+}
+
+form {
+  background-color: grey;
+  width: 20em;
+  margin: 2em auto;
+  padding: 1em 1em;
+}
+
+#register-btn {
+  cursor: not-allowed;
+  background-color: white;
+  margin: 0 0 1em;
+  width: 5em;
+}
+
+#password {
+  margin: 0 0 1em 0;
+}
