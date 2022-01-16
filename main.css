@@ -1,9 +1,10 @@
 body {
   font-family: sans-serif;
+  background-color: lightgray;
 }
 
 form {
-  background-color: grey;
+  background-color: darkgrey;
   width: 20em;
   margin: 2em 5em;
   padding: 1em 1em;
