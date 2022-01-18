@@ -71,14 +71,23 @@ let checkCookie = function () {
     document.getElementById("cookiePopup").style.display = "none";
     user.removeAttribute("disabled");
     password.removeAttribute("disabled");
-
-    // recaptcha
-    function recaptcha_callback() {
-      let registerBtn = document.querySelector("#register-btn");
-      registerBtn.removeAttribute("disabled");
-      registerBtn.style.cursor = "pointer";
-    }
-    recaptcha_callback();
   }
 };
 checkCookie();
+
+function recaptcha_callback() {
+  let registerBtn = document.querySelector("#register-btn");
+  registerBtn.removeAttribute("disabled");
+  registerBtn.style.cursor = "pointer";
+}
+function hiddenfunction() {
+  var password = document.getElementById("password");
+  var user = document.getElementById("user");
+  let x = document.getElementById("deleteContainer");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else if (password.value === "password" && user.value === "user") {
+    x.style.display = "none";
+  }
+  recaptcha_callback();
+}
