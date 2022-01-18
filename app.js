@@ -14,8 +14,6 @@ document.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-// recaptcha
-
 // Add cookie popup
 // set cookie according to you
 var cookieName = "CodingStatus";
@@ -26,6 +24,7 @@ var cookieExpireDays = 30;
 let acceptCookie = document.getElementById("acceptCookie");
 acceptCookie.onclick = function () {
   createCookie(cookieName, cookieValue, cookieExpireDays);
+  window.location.reload();
 };
 
 // function to set cookie in web browser
@@ -72,6 +71,8 @@ let checkCookie = function () {
     document.getElementById("cookiePopup").style.display = "none";
     user.removeAttribute("disabled");
     password.removeAttribute("disabled");
+
+    // recaptcha
     function recaptcha_callback() {
       let registerBtn = document.querySelector("#register-btn");
       registerBtn.removeAttribute("disabled");
