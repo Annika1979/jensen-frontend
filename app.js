@@ -4,7 +4,7 @@ document.addEventListener("submit", (event) => {
   let password = document.getElementById("password").value;
 
   let request = new XMLHttpRequest();
-  request.open("POST", "http://127.0.0.1:5500/authorize");
+  request.open("POST", "https://annika-backend.herokuapp.com/");
   //request.send(new FormData(formElement));
   console.log("Validated");
 
