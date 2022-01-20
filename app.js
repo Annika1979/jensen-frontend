@@ -4,7 +4,7 @@ document.addEventListener("submit", (event) => {
   let password = document.getElementById("password").value;
 
   let request = new XMLHttpRequest();
-  request.open("POST", "http://localhost:5500/authorize");
+  request.open("POST", "http://127.0.0.1:5500/authorize");
   //request.send(new FormData(formElement));
   console.log("Validated");
 
@@ -13,7 +13,7 @@ document.addEventListener("submit", (event) => {
 
   event.preventDefault();
 });
-
+//end of coocie test//
 // Add cookie popup
 // set cookie according to you
 var cookieName = "CodingStatus";
@@ -24,6 +24,7 @@ var cookieExpireDays = 30;
 let acceptCookie = document.getElementById("acceptCookie");
 acceptCookie.onclick = function () {
   createCookie(cookieName, cookieValue, cookieExpireDays);
+  //uppdaterar
   window.location.reload();
 };
 
@@ -43,7 +44,6 @@ let createCookie = function (cookieName, cookieValue, cookieExpireDays) {
     );
   }
 };
-
 // get cookie from the web browser
 let getCookie = function (cookieName) {
   let name = cookieName + "=";
@@ -71,8 +71,16 @@ let checkCookie = function () {
     document.getElementById("cookiePopup").style.display = "none";
     user.removeAttribute("disabled");
     password.removeAttribute("disabled");
+
+    // function recaptcha_callback() {
+    //   let registerBtn = document.querySelector("#register-btn");
+    //   registerBtn.removeAttribute("disabled");
+    //   registerBtn.style.cursor = "pointer";
   }
+
+  // recaptcha_callback();
 };
+
 checkCookie();
 
 function recaptcha_callback() {
@@ -88,6 +96,42 @@ function hiddenfunction() {
     x.style.display = "block";
   } else if (password.value === "password" && user.value === "user") {
     x.style.display = "none";
+    var application = document.getElementById("application");
+    application.style.display = "block";
   }
   recaptcha_callback();
 }
+
+function logOutFunction() {
+  let deleteContainer = document.getElementById("deleteContainer");
+  deleteContainer.style.display = "block";
+  let application = document.getElementById("application");
+  application.style.display = "none";
+  window.location.reload();
+}
+
+function rejectCookieFunction() {
+  let rejectPopup = document.getElementById("rejectPopup");
+  rejectPopup.style.display = "block";
+  document.getElementById("cookiePopup").style.display = "none";
+}
+
+// when users click the raccept button
+let acceptNewCookie = document.getElementById("cookieConsent");
+acceptNewCookie.onclick = function () {
+  createNewCookie(cookieName, cookieValue, cookieExpireDays);
+  //uppdaterar
+  window.location.reload();
+};
+
+// function to set cookie in web browser
+let createNewCookie = function (cookieName, cookieValue, cookieExpireDays) {
+  let currentDate = new Date();
+  currentDate.setTime(
+    currentDate.getTime() + cookieExpireDays * 24 * 60 * 60 * 1000
+  );
+  let expires = "expires=" + currentDate.toGMTString();
+  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+};
+
+//
