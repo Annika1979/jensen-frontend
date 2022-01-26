@@ -4,21 +4,21 @@ document.addEventListener("submit", (event) => {
   let password = document.getElementById("password").value;
 
   let request = new XMLHttpRequest();
-  request.open("POST", "https://annika-backend.herokuapp.com/");
+  request.open("POST", "https://annika-backend.herokuapp.com/authorize");
   //request.send(new FormData(formElement));
   console.log("Validated");
 
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send(`user=${user}&password=${password}`);
+  // request.send(`user=${user}&password=${password}`);
 
   event.preventDefault();
 });
 //end of coocie test//
 // Add cookie popup
 // set cookie according to you
-var cookieName = "CodingStatus";
-var cookieValue = "Cookie";
-var cookieExpireDays = 30;
+let cookieName = "CodingStatus";
+let cookieValue = "Cookie";
+let cookieExpireDays = 30;
 
 // when users click accept button
 let acceptCookie = document.getElementById("acceptCookie");
@@ -89,20 +89,24 @@ function recaptcha_callback() {
   registerBtn.style.cursor = "pointer";
 }
 function hiddenfunction() {
-  var password = document.getElementById("password");
-  var user = document.getElementById("user");
+  let password = document.getElementById("password");
+  let user = document.getElementById("user");
   let x = document.getElementById("deleteContainer");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else if (
-    (password.value === "password" && user.value === "user") ||
-    (password.value === "Pannika" && user.value === "Annika") ||
-    (password.value === "Pan" && user.value === "Dan") ||
-    (password.value === "Bläbläblä" && user.value === "Rebecca")
+    password.value === "password" &&
+    user.value === "user"
+    // (password.value === "Pannika" && user.value === "Annika") ||
+    // (password.value === "Pan" && user.value === "Dan") ||
+    // (password.value === "Bläbläblä" && user.value === "Rebecca")
   ) {
     x.style.display = "none";
-    var application = document.getElementById("application");
+    let application = document.getElementById("application");
     application.style.display = "block";
+    document.body.style.backgroundImage = "url('./images/marvel.jpg')";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
   }
   recaptcha_callback();
 }
