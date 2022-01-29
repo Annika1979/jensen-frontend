@@ -97,10 +97,12 @@ form {
   display: none;
 }
 
-#log-outBtn {
+#log-outBtn,
+#secretPageBtn {
   width: 10%;
   margin-left: 45%;
   margin-right: 45%;
+  margin-bottom: 2em;
   height: 50px;
   border-radius: 10px;
   font-size: 20px;

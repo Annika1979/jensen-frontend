@@ -13,6 +13,7 @@ document.addEventListener("submit", (event) => {
 
   event.preventDefault();
 });
+
 //end of coocie test//
 // Add cookie popup
 // set cookie according to you
@@ -109,6 +110,33 @@ function hiddenfunction() {
     document.body.style.backgroundSize = "cover";
   }
   recaptcha_callback();
+}
+function marvelFunction() {
+  let marvelHero = [
+    "Spider-Man",
+    "Iron Man",
+    "Captain America",
+    "the Hulk",
+    "Thor",
+    "Wolverine",
+    "Ant-Man",
+    "the Wasp",
+    "Black Widow",
+    "Hawkeye",
+    "Captain Marvel",
+    "Black Panther",
+    "Doctor Strange",
+    "the Scarlet Witch",
+    "Quicksilver",
+    "She-Hulk",
+    "the Vision",
+    "the Falcon",
+    "the Winter Soldier",
+    "Ghost Rider",
+  ];
+  let randomHero = marvelHero[Math.floor(Math.random() * marvelHero.length)];
+
+  document.getElementById("secretPage").innerHTML = randomHero;
 }
 
 function logOutFunction() {
