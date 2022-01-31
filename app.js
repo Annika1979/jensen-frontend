@@ -105,9 +105,6 @@ function hiddenfunction() {
     x.style.display = "none";
     let application = document.getElementById("application");
     application.style.display = "block";
-    document.body.style.backgroundImage = "url('./images/marvel.jpg')";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";
   }
   recaptcha_callback();
 }
