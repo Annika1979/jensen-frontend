@@ -9,17 +9,16 @@ document.addEventListener("submit", (event) => {
   console.log("Validated");
 
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // request.send(`user=${user}&password=${password}`);
+  request.send(`user=${user}&password=${password}`);
 
   event.preventDefault();
 });
-
 //end of coocie test//
 // Add cookie popup
 // set cookie according to you
-let cookieName = "CodingStatus";
-let cookieValue = "Cookie";
-let cookieExpireDays = 30;
+var cookieName = "CodingStatus";
+var cookieValue = "Cookie";
+var cookieExpireDays = 30;
 
 // when users click accept button
 let acceptCookie = document.getElementById("acceptCookie");
@@ -90,24 +89,26 @@ function recaptcha_callback() {
   registerBtn.style.cursor = "pointer";
 }
 function hiddenfunction() {
-  let password = document.getElementById("password");
-  let user = document.getElementById("user");
+  var password = document.getElementById("password");
+  var user = document.getElementById("user");
   let x = document.getElementById("deleteContainer");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else if (
-    password.value === "password" &&
-    user.value === "user"
-    // (password.value === "Pannika" && user.value === "Annika") ||
-    // (password.value === "Pan" && user.value === "Dan") ||
-    // (password.value === "Bläbläblä" && user.value === "Rebecca")
+    (password.value === "password" && user.value === "user") ||
+    (password.value === "Pannika" && user.value === "Annika") ||
+    (password.value === "Pan" && user.value === "Dan") ||
+    (password.value === "Bläbläblä" && user.value === "Rebecca")
   ) {
+    let img = document.getElementById("img");
     x.style.display = "none";
-    let application = document.getElementById("application");
+    img.style.display = "none";
+    var application = document.getElementById("application");
     application.style.display = "block";
   }
   recaptcha_callback();
 }
+
 function marvelFunction() {
   let marvelHero = [
     "SPIDER-MAN: REMEMBER, WITH GREAT POWER COMES GREAT RESPONSIBILITY.",
